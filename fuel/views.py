@@ -1,7 +1,9 @@
 """Views for fuel routing app."""
 
 import logging
+from django.core.cache import cache
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.views import View
 from rest_framework import status
 from rest_framework.response import Response
@@ -162,4 +164,26 @@ class RouteMapView(View):
     """Renders interactive Leaflet map for a calculated route (Phase 11)."""
 
     def get(self, request, route_id, *args, **kwargs):
-        return HttpResponse("Map bootstrap ready", content_type="text/plain")
+        cached_data = cache.get(f"route_map:{route_id}")
+        if not cached_data:
+            return render(
+                request,
+                "fuel/map.html",
+                {
+                    "route_id": route_id,
+                    "error": f"Route '{route_id}' not found or has expired. Please calculate a route first via POST /api/v1/routes/.",
+                    "route_data": None,
+                },
+                status=404,
+            )
+
+        return render(
+            request,
+            "fuel/map.html",
+            {
+                "route_id": route_id,
+                "route_data": cached_data,
+                "error": None,
+            },
+            status=200,
+        )
