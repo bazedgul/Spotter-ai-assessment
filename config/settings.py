@@ -118,6 +118,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Assessment Business Logic & Routing Settings
 ROUTING_API_BASE_URL = os.getenv('ROUTING_API_BASE_URL', 'https://router.project-osrm.org')
+ROUTING_TIMEOUT_SECONDS = float(os.getenv('ROUTING_TIMEOUT_SECONDS', '15.0'))
+CENSUS_GEOCODER_URL = os.getenv('CENSUS_GEOCODER_URL', 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress')
+CENSUS_GAZETTEER_PATH = os.getenv('CENSUS_GAZETTEER_PATH', str(BASE_DIR / 'data' / '2023_Gaz_place_national.txt'))
+GEOCODING_TIMEOUT_SECONDS = float(os.getenv('GEOCODING_TIMEOUT_SECONDS', '15.0'))
+
 FUEL_STOP_CORRIDOR_MILES = float(os.getenv('FUEL_STOP_CORRIDOR_MILES', '5.0'))
 VEHICLE_MAX_RANGE_MILES = float(os.getenv('VEHICLE_MAX_RANGE_MILES', '500.0'))
 VEHICLE_MPG = float(os.getenv('VEHICLE_MPG', '10.0'))
