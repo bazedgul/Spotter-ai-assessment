@@ -113,4 +113,7 @@ Fresh-environment validation with dependencies from `requirements.txt` used Djan
 
 ## Demo
 
-Loom walkthrough: [Add Loom URL after recording]
+Loom walkthrough: 
+Part 1: https://www.loom.com/share/b73b73d69dc54bac9d5b8faf74a4a48d
+Part 2: https://www.loom.com/share/50d17f9e7d1b49e182fb2c4ca647a6bb
+Part 3: https://www.loom.com/share/0006a699b62c48e3af64f5f820ad2424

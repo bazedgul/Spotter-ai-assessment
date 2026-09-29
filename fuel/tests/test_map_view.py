@@ -112,8 +112,8 @@ class RouteMapViewTestCase(TestCase):
         # Leaflet CDN assets
         self.assertIn("leaflet.css", content)
         self.assertIn("leaflet.js", content)
-        # OpenStreetMap tile source
-        self.assertIn("tile.openstreetmap.org", content)
+        # Esri public basemap tile source
+        self.assertIn("server.arcgisonline.com", content)
 
     def test_route_geometry_available_to_template(self):
         """4. Route geometry is available to the template and rendered in JSON script tag."""
